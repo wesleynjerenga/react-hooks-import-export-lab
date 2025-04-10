@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/NavBar"; // Adjust the path if necessary
 
 test("it is exported as a default export", () => {
   try {
@@ -8,4 +8,9 @@ test("it is exported as a default export", () => {
   } catch (e) {
     throw new Error("Make sure to export this component!");
   }
+});
+
+test("it renders the name Liza", () => {
+  const { getByText } = render(<NavBar />);
+  expect(getByText("Liza")).toBeInTheDocument();
 });
